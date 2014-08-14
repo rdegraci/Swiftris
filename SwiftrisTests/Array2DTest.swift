@@ -6,14 +6,18 @@
 //  Copyright (c) 2014 Patrick Cleary. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 import XCTest
 
 class Array2DTest: XCTestCase {
 
+    var array: Array2D<Int?>?
+    var array2: A!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        array = Array2D<Int?>(columns: 10, rows: 10)        
+        self.array2 = A(columns: 10, rows: 10)
     }
     
     override func tearDown() {
@@ -21,9 +25,15 @@ class Array2DTest: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testSubscript() {
+        self.array2[1,1] = 1
+        
+        if let b = self.array {
+            b[3,3] = 3
+        }
+
+        XCTAssertTrue(self.array2[1,1] == 1)
+        XCTAssert(self.array2[1, 1] == 1)
     }
 
     func testPerformanceExample() {
